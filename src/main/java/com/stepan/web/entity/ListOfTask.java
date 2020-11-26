@@ -18,13 +18,13 @@ public class ListOfTask {
     @Column(name = "id")
     Long id;
 
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-    @JoinColumn(name = "color_id", unique = true)
+    @OneToOne
+    @JoinColumn(name = "color_id")
     Color colorId;
 
     @Column(name = "name")
     String name;
 
-    @OneToMany(mappedBy = "task_id")
+    @OneToMany
     List<Task> tasks;
 }

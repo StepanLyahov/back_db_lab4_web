@@ -24,6 +24,6 @@ public class Task {
     Boolean completed;
 
     @ManyToOne
-    @JoinColumn(name = "task_id")
+    @JoinColumn(name = "list_id")
     ListOfTask listId;
 }

@@ -24,6 +24,6 @@ public class Color {
     @Column(name = "name")
     String name;
 
-    @OneToOne(mappedBy = "color_id")
+    @OneToOne(mappedBy = "colorId")
     ListOfTask listOfTask;
 }
