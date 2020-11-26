@@ -19,6 +19,7 @@
         <java.version>1.8</java.version>
         <org.apache.maven.plugins.version>3.6.0</org.apache.maven.plugins.version>
         <org.projectlombok.version>1.18.10</org.projectlombok.version>
+        <org.junit.jupiter.version>5.4.2</org.junit.jupiter.version>
     </properties>
 
     <dependencies>
@@ -40,6 +41,23 @@
             <artifactId>lombok</artifactId>
             <version>${org.projectlombok.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${org.junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 
