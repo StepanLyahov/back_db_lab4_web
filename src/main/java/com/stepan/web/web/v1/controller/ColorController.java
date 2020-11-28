@@ -1,5 +1,6 @@
 package com.stepan.web.web.v1.controller;
 
+import com.stepan.web.service.ColorService;
 import com.stepan.web.web.dto.ColorDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,8 +16,10 @@ import static com.stepan.web.web.v1.ApiConstantUtils.COLOR;
 @RequiredArgsConstructor
 public class ColorController {
 
+    private final ColorService colorService;
+
     @GetMapping("/getAll")
     public List<ColorDto> getAllColor() {
-        return null;
+        return colorService.getAllColor();
     }
 }
