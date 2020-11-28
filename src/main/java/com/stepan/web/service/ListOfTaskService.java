@@ -5,15 +5,14 @@ import com.stepan.web.repository.ListOfTaskRepository;
 import com.stepan.web.web.dto.ListOfTaskDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class ListOfTaskService {
 
     private final ListOfTaskRepository listOfTaskRepository;
@@ -26,7 +25,7 @@ public class ListOfTaskService {
 
     }
 
-    public void addNewList(@RequestBody ListOfTask listOfTask) {
+    public void addNewList(ListOfTask listOfTask) {
 
     }
 
