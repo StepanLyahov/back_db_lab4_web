@@ -5,7 +5,6 @@ import com.stepan.web.repository.ListOfTaskRepository;
 import com.stepan.web.web.dto.ListOfTaskDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.transaction.Transactional;
 import java.util.List;

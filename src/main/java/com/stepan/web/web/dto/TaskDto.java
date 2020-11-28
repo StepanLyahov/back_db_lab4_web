@@ -1,6 +1,5 @@
 package com.stepan.web.web.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 

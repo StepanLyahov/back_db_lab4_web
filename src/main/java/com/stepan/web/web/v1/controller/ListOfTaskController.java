@@ -3,7 +3,6 @@ package com.stepan.web.web.v1.controller;
 import com.stepan.web.entity.ListOfTask;
 import com.stepan.web.service.ListOfTaskService;
 import com.stepan.web.web.dto.ListOfTaskDto;
-import com.stepan.web.web.dto.TaskDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
