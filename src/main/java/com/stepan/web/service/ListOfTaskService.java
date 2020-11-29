@@ -70,7 +70,7 @@ public class ListOfTaskService {
 
     public void addNewList(ListOfTaskDto dto) {
         ListOfTask listOfTask = listOfTaskMapper.toEntity(dto);
-        Color color = colorRepository.getOne(dto.getColor().getId());
+        Color color = colorRepository.getOne(dto.getColorId());
         listOfTask.setColorId(color);
 
         listOfTaskRepository.save(listOfTask);

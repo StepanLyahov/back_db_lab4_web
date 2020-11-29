@@ -8,6 +8,7 @@ import org.mapstruct.Mapping;
 @Mapper
 public interface ListOfTaskMapper {
 
+    @Mapping(target = "colorId", ignore = true)
     @Mapping(target = "color", ignore = true)
     @Mapping(target = "tasks", ignore = true)
     ListOfTaskDto toDTO(ListOfTask entity);

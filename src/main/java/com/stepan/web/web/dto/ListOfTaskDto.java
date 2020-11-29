@@ -14,6 +14,7 @@ import java.util.List;
 public class ListOfTaskDto {
     Long id;
     ColorDto color;
+    Long colorId;
     String name;
     List<TaskDto> tasks;
 }

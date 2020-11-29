@@ -7,5 +7,5 @@ spring:
     username: stepan
     password: postgres
   jpa:
-    generate-ddl: true
+#    generate-ddl: true
     show-sql: false
