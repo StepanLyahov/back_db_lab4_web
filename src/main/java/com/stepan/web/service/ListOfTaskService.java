@@ -61,6 +61,11 @@ public class ListOfTaskService {
         Optional<ListOfTask> res = listOfTaskRepository.findById(id);
         if (res.isEmpty())
             throw new Exception("ListOfTask does not exist id:" + id);
+
+        ListOfTask listOfTask = listOfTaskMapper.toEntity(dto);
+        listOfTask.setColorId(res.get().getColorId());
+
+        listOfTaskRepository.save(listOfTask);
     }
 
     public void addNewList(ListOfTaskDto dto) {

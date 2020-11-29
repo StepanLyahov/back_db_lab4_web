@@ -25,6 +25,6 @@ public class ListOfTask {
     @Column(name = "name")
     String name;
 
-    @OneToMany
+    @OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "listId")
     List<Task> tasks;
 }
