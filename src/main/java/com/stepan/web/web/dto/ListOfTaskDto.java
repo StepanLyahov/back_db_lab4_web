@@ -8,6 +8,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class ListOfTaskDto {

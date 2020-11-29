@@ -7,6 +7,7 @@ import lombok.experimental.FieldDefaults;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class TaskDto {
