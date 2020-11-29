@@ -23,13 +23,13 @@ public class ListOfTaskController {
     }
 
     @PostMapping("/update/{id}")
-    public void updateList(@PathVariable("id") Long id, @RequestBody ListOfTask listOfTask) {
-        listOfTaskService.updateList(id, listOfTask);
+    public void updateList(@PathVariable("id") Long id, @RequestBody ListOfTaskDto listOfTaskDto) {
+        listOfTaskService.updateList(id, listOfTaskDto);
     }
 
     @PostMapping("/add")
-    public void addNewList(@RequestBody ListOfTask listOfTask) {
-        listOfTaskService.addNewList(listOfTask);
+    public void addNewList(@RequestBody ListOfTaskDto listOfTaskDto) {
+        listOfTaskService.addNewList(listOfTaskDto);
     }
 
     @PostMapping("/delete/{id}")
