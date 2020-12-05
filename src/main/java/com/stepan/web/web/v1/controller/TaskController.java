@@ -10,6 +10,7 @@ import static com.stepan.web.web.v1.ApiConstantUtils.TASK;
 @RestController
 @RequestMapping(TASK)
 @RequiredArgsConstructor
+@CrossOrigin
 public class TaskController {
 
     private final TaskService taskService;

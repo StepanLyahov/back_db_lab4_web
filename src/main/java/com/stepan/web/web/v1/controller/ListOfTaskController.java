@@ -13,6 +13,7 @@ import static com.stepan.web.web.v1.ApiConstantUtils.LISTS;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(LISTS)
+@CrossOrigin
 public class ListOfTaskController {
 
     private final ListOfTaskService listOfTaskService;
