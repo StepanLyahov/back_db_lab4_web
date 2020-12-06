@@ -24,8 +24,8 @@ public class ListOfTaskController {
     }
 
     @PostMapping("/update/{id}")
-    public void updateList(@PathVariable("id") Long id, @RequestBody ListOfTaskDto listOfTaskDto) {
-        listOfTaskService.updateList(id, listOfTaskDto);
+    public ListOfTaskDto updateList(@PathVariable("id") Long id, @RequestBody ListOfTaskDto listOfTaskDto) {
+        return listOfTaskService.updateList(id, listOfTaskDto);
     }
 
     @PostMapping("/add")

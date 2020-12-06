@@ -43,7 +43,7 @@ public class ListOfTaskService {
     }
 
     @SneakyThrows
-    public void updateList(Long id, ListOfTaskDto dto) {
+    public ListOfTaskDto updateList(Long id, ListOfTaskDto dto) {
         Optional<ListOfTask> res = listOfTaskRepository.findById(id);
         if (res.isEmpty())
             throw new Exception("ListOfTask does not exist id:" + id);
@@ -51,7 +51,9 @@ public class ListOfTaskService {
         ListOfTask listOfTask = listOfTaskMapper.toEntity(dto);
         listOfTask.setColorId(res.get().getColorId());
 
-        listOfTaskRepository.save(listOfTask);
+        ListOfTask resL = listOfTaskRepository.save(listOfTask);
+
+        return convertEntityToDto(resL);
     }
 
     public ListOfTaskDto addNewList(ListOfTaskDto dto) {
