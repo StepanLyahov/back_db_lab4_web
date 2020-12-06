@@ -21,8 +21,8 @@ public class TaskController {
     }
 
     @PostMapping("/add")
-    public void addTask(@RequestBody TaskDto taskDto) {
-        taskService.addTask(taskDto);
+    public TaskDto addTask(@RequestBody TaskDto taskDto) {
+        return taskService.addTask(taskDto);
     }
 
     @PostMapping("/delete/{id}")

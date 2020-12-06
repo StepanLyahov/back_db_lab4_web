@@ -35,12 +35,14 @@ public class TaskService {
         taskRepository.save(taskMap);
     }
 
-    public void addTask(TaskDto taskDto) {
+    public TaskDto addTask(TaskDto taskDto) {
         Task task = mapper.toEntity(taskDto);
-        ListOfTask listOfTask = listOfTaskRepository.getOne(taskDto.getId());
+        ListOfTask listOfTask = listOfTaskRepository.getOne(taskDto.getListId());
         task.setListId(listOfTask);
 
-        taskRepository.save(task);
+        Task res = taskRepository.save(task);
+
+        return mapper.toDTO(res);
     }
 
     public void deleteTask(Long id) {
