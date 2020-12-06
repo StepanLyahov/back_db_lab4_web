@@ -29,8 +29,8 @@ public class ListOfTaskController {
     }
 
     @PostMapping("/add")
-    public void addNewList(@RequestBody ListOfTaskDto listOfTaskDto) {
-        listOfTaskService.addNewList(listOfTaskDto);
+    public ListOfTaskDto addNewList(@RequestBody ListOfTaskDto listOfTaskDto) {
+        return listOfTaskService.addNewList(listOfTaskDto);
     }
 
     @PostMapping("/delete/{id}")

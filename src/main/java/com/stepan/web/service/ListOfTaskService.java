@@ -37,21 +37,7 @@ public class ListOfTaskService {
         List<ListOfTask> res = listOfTaskRepository.findAll();
 
         List<ListOfTaskDto> listOfTaskDtos = new LinkedList<>();
-        res.forEach(e -> {
-            ListOfTaskDto dto = listOfTaskMapper.toDTO(e);
-
-            ColorDto colorDto = colorMapper.toDTO(e.getColorId());
-            dto.setColor(colorDto);
-
-            List<TaskDto> taskDtos = e.getTasks()
-                    .stream().map(taskMapper::toDTO)
-                    .collect(Collectors.toList());
-
-            dto.setTasks(taskDtos);
-
-            listOfTaskDtos.add(dto);
-
-        });
+        res.forEach(e ->  listOfTaskDtos.add(convertEntityToDto(e)));
 
         return listOfTaskDtos;
     }
@@ -68,15 +54,38 @@ public class ListOfTaskService {
         listOfTaskRepository.save(listOfTask);
     }
 
-    public void addNewList(ListOfTaskDto dto) {
+    public ListOfTaskDto addNewList(ListOfTaskDto dto) {
         ListOfTask listOfTask = listOfTaskMapper.toEntity(dto);
         Color color = colorRepository.getOne(dto.getColorId());
         listOfTask.setColorId(color);
 
-        listOfTaskRepository.save(listOfTask);
+        ListOfTask res = listOfTaskRepository.save(listOfTask);
+
+        return convertEntityToDto(res);
     }
 
     public void deleteList(Long id) {
         listOfTaskRepository.deleteById(id);
     }
+
+    private ListOfTaskDto convertEntityToDto(ListOfTask entity) {
+        ListOfTaskDto dto = listOfTaskMapper.toDTO(entity);
+
+
+        if (entity.getColorId() != null) {
+            ColorDto colorDto = colorMapper.toDTO(entity.getColorId());
+            dto.setColor(colorDto);
+        }
+
+        if (entity.getTasks() != null) {
+            List<TaskDto> taskDtos = entity.getTasks()
+                    .stream().map(taskMapper::toDTO)
+                    .collect(Collectors.toList());
+
+            dto.setTasks(taskDtos);
+        }
+
+        return dto;
+    }
+
 }
