@@ -8,5 +8,5 @@ spring:
     password: ${DB_PASSWORD:postgres}
 
   jpa:
-#    generate-ddl: true
+    generate-ddl: true
     show-sql: false
