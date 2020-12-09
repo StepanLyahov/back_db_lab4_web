@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/lab4_web
+    url: jdbc:postgresql://192.168.1.122:5432/lab4_web
     username: stepan
     password: postgres
   jpa:
