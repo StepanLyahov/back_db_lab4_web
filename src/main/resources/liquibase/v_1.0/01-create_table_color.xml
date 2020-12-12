@@ -1,0 +1,56 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="lyahov" id="12122020-1">
+        <createTable tableName="color">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="pk_color"/>
+            </column>
+            <column name="hex" type="varchar(15)"/>
+            <column name="name" type="varchar(30)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="lyahov" id="12122020-2">
+        <insert tableName="color">
+            <column name="hex">#C9D1D3</column>
+            <column name="name">grey</column>
+        </insert>
+
+        <insert tableName="color">
+            <column name="hex">#42B883</column>
+            <column name="name">green</column>
+        </insert>
+
+        <insert tableName="color">
+            <column name="hex">#64C4ED</column>
+            <column name="name">blue</column>
+        </insert>
+
+        <insert tableName="color">
+            <column name="hex">#FFBBCC</column>
+            <column name="name">pink</column>
+        </insert>
+
+        <insert tableName="color">
+            <column name="hex">#B6E6BD</column>
+            <column name="name">lime</column>
+        </insert>
+
+        <insert tableName="color">
+            <column name="hex">#C355F5</column>
+            <column name="name">purple</column>
+        </insert>
+
+        <insert tableName="color">
+            <column name="hex">#110133</column>
+            <column name="name">black</column>
+        </insert>
+
+        <insert tableName="color">
+            <column name="hex">#FF6464</column>
+            <column name="name">red</column>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

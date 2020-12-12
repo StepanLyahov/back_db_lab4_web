@@ -8,5 +8,14 @@ spring:
     password: ${DB_PASSWORD:postgres}
 
   jpa:
-    generate-ddl: true
+    generate-ddl: false
     show-sql: false
+    hibernate:
+      ddl-auto: validate
+
+  liquibase:
+    changeLog: classpath:/liquibase/db.changelog-master.xml
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+    enabled: true
