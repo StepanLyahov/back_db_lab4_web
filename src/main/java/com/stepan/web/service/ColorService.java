@@ -24,7 +24,6 @@ public class ColorService {
 
     @PostConstruct
     void init() {
-        colorRepository.deleteAll();
 
         List<Color> allList = new ArrayList<>();
 
