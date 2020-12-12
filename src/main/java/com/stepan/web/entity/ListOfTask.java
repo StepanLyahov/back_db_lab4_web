@@ -14,7 +14,7 @@ import java.util.List;
 @EqualsAndHashCode
 public class ListOfTask {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     Long id;
 
