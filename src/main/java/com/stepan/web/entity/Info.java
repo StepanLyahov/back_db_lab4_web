@@ -1,30 +1,30 @@
 package com.stepan.web.entity;
 
+
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @Entity
-@Table(name = "list_of_task")
+@Table(name = "info")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-public class ListOfTask {
+public class Info {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     Long id;
 
+    @Column(name = "number")
+    String number;
+
     @OneToOne
-    @JoinColumn(name = "color_id")
-    Color colorId;
+    Image logo;
 
-    @Column(name = "name")
-    String name;
-
-    @OneToMany
-    List<Task> tasks;
+    @Column(name = "description")
+    String description;
 }

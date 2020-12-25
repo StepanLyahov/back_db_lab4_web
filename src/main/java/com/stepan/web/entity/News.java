@@ -6,24 +6,26 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "color")
+@Table(name = "news")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-public class Color {
-
+public class News {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     Long id;
 
-    @Column(name = "hex")
-    String hex;
+    @Column(name = "title")
+    String title;
 
-    @Column(name = "name")
-    String name;
+    @Column(name = "less_description")
+    String lessDescription;
 
-    @OneToOne(mappedBy = "colorId")
-    ListOfTask listOfTask;
+    @Column(name = "description")
+    String description;
+
+    @OneToOne
+    Image image;
 }
