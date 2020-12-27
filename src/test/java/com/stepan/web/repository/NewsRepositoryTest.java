@@ -2,7 +2,6 @@ package com.stepan.web.repository;
 
 import com.stepan.web.entity.Image;
 import com.stepan.web.entity.News;
-import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
