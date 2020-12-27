@@ -26,6 +26,6 @@ public class News {
     @Column(name = "description")
     String description;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     Image image;
 }
