@@ -16,6 +16,20 @@ class NewsRepositoryTest extends BaseTest {
     @Autowired
     private NewsRepository newsRepository;
 
+
+    @Test
+    void addNews() { // запустить это чтобы добавить данные
+        News news = News.builder()
+                .description("My descr")
+                .lessDescription("less descr")
+                .title("My title")
+                .image(null)
+                .build();
+
+        newsRepository.save(news);
+    }
+
+
     @Test
     void testAddAndReadNewsFromDB() {
         newsRepository.deleteAll();
