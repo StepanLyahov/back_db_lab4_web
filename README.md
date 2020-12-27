@@ -18,7 +18,7 @@ urls
 
 1. http://localhost:8080/api/v1/info/getInfo GET
 2. http://localhost:8080/api/v1/news/getAllNews GET
-3. http://localhost:8080/api/v1/news/getNews/id GET
+3. http://localhost:8080/api/v1/news/getNews/id GET пока что не работает
 
 
 
