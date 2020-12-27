@@ -1,7 +1,7 @@
 package com.stepan.web.repository;
 
 import com.stepan.web.entity.Image;
-import jdk.nashorn.internal.ir.annotations.Ignore;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -14,7 +14,7 @@ class ImageRepositoryTest extends BaseTest {
     private ImageRepository imageRepository;
 
     @Test
-    @Ignore
+    @Disabled
     void saveImage() {
         File file = new File("/Users/stepanlahov/Desktop/work/web_db/src/main/resources/cat1.jpg");
         byte[] bFile = new byte[(int) file.length()];
