@@ -2,6 +2,7 @@ package com.stepan.web.repository;
 
 import com.stepan.web.entity.Image;
 import com.stepan.web.entity.News;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -18,6 +19,7 @@ class NewsRepositoryTest extends BaseTest {
 
 
     @Test
+    @Ignore
     void addNews() { // запустить это чтобы добавить данные
         News news = News.builder()
                 .description("My descr")
@@ -31,6 +33,7 @@ class NewsRepositoryTest extends BaseTest {
 
 
     @Test
+    @Ignore
     void testAddAndReadNewsFromDB() {
         newsRepository.deleteAll();
 
