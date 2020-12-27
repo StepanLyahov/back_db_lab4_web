@@ -11,11 +11,16 @@ import java.util.Base64;
 public class ImageServiceImpl implements ImageService {
     @Override
     public ImageDto toDto(Image image) {
-        return ImageDto.builder()
-                .id(image.getId())
-                .name(image.getName())
-                .type(image.getType())
-                .imageBase64(Base64.getEncoder().encodeToString(image.getImageData()))
-                .build();
+        if (image != null) {
+            return ImageDto.builder()
+                    .id(image.getId())
+                    .name(image.getName())
+                    .type(image.getType())
+                    .imageBase64(Base64.getEncoder().encodeToString(image.getImageData()))
+                    .build();
+        } else
+            return null;
+
+
     }
 }
