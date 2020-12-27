@@ -17,5 +17,5 @@ public class NewsDto {
 
     String description;
 
-    Image image;
+    ImageDto image;
 }

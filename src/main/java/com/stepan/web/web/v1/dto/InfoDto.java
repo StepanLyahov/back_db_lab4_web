@@ -1,6 +1,5 @@
 package com.stepan.web.web.v1.dto;
 
-import com.stepan.web.entity.Image;
 import lombok.Builder;
 import lombok.Data;
 
@@ -12,7 +11,7 @@ public class InfoDto {
 
     String number;
 
-    Image logo;
+    ImageDto logo;
 
     String description;
 }
