@@ -14,4 +14,14 @@
 4. Прописать в базе id картинок
 
 
+urls
+
+1. http://localhost:8080/api/v1/info/getInfo GET
+2. http://localhost:8080/api/v1/news/getAllNews GET
+
+
+
+    
+
+
     
