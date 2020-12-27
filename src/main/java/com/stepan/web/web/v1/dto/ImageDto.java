@@ -7,4 +7,10 @@ import lombok.Data;
 @Builder
 public class ImageDto {
     Long id;
+
+    String name;
+
+    String type;
+
+    String imageBase64;
 }
