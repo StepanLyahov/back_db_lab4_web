@@ -25,30 +25,30 @@ public class Info {
     @Column(name = "number_2")
     String number2;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     Image logo;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @Column(name = "header_img")
     Image headerImg;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @Column(name = "logo_vk")
     Image logoVk;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @Column(name = "logo_instagram")
     Image logoInstagram;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @Column(name = "logo_twitter")
     Image logoTwitter;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @Column(name = "logo_facebook")
     Image logoFacebook;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @Column(name = "logo_telegram")
     Image logoTelegram;
 

@@ -32,6 +32,6 @@ public class News {
     @Column(name = "url_youtube_video")
     String urlYouTubeVideo;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     Game game;
 }

@@ -27,7 +27,7 @@ public class Game {
     @Column(name = "genre")
     String genre;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     Image cover;
 
     @Column(name = "date_released")
