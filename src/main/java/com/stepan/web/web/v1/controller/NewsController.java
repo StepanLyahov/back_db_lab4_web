@@ -5,6 +5,7 @@ import com.stepan.web.web.v1.dto.NewsDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 import static com.stepan.web.web.v1.ApiUtil.NEWS;
@@ -13,6 +14,7 @@ import static com.stepan.web.web.v1.ApiUtil.NEWS;
 @RequestMapping(NEWS)
 @CrossOrigin
 @RequiredArgsConstructor
+@Transactional
 public class NewsController {
 
     private final NewsService newsService;
