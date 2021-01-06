@@ -1,58 +1,57 @@
 package com.stepan.web.repository;
 
+import com.stepan.web.entity.Game;
 import com.stepan.web.entity.Image;
 import com.stepan.web.entity.News;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class NewsRepositoryTest extends BaseTest {
 
     @Autowired
     private NewsRepository newsRepository;
 
+    @Autowired
+    private ImageRepository imageRepository;
 
     @Test
-    @Disabled
-    void addNews() { // запустить это чтобы добавить данные
-        News news = News.builder()
-                .description("My descr")
-                .lessDescription("less descr")
-                .title("My title")
-                .image(null)
-                .build();
-
-        newsRepository.save(news);
-    }
-
-
-    @Test
-    @Disabled
-    void testAddAndReadNewsFromDB() {
+    void addAllNewsInDB() {
         newsRepository.deleteAll();
 
-        Image imageCat = getImage("Yor path to image in resources");
+        List<News> allNews = new ArrayList<>();
 
         News news = News.builder()
-                .description("My descr")
-                .lessDescription("less descr")
-                .title("My title")
-                .image(imageCat)
+                .image(addImage("", "", ""))
+                .game(
+                        Game.builder()
+                        .cover(addImage("", "", ""))
+
+                        .build())
                 .build();
 
-        newsRepository.save(news);
+        News news1 = News.builder()
+                .image(addImage("", "", ""))
+                .game(
+                        Game.builder()
+                                .cover(addImage("", "", ""))
 
-        List<News> res = newsRepository.findAll();
-        assertEquals("My descr", res.get(0).getDescription());
+                                .build())
+                .build();
+
+        allNews.add(news);
+        allNews.add(news1);
+
+
+
+        newsRepository.saveAll(allNews);
     }
 
-    private Image getImage(String path) {
+    private Image addImage(String path, String nameImg, String typeImg) {
         File file = new File(path);
         byte[] bFile = new byte[(int) file.length()];
 
@@ -65,12 +64,11 @@ class NewsRepositoryTest extends BaseTest {
         }
 
         Image image = Image.builder()
-                .name("myImage")
-                .type("jpg")
+                .name(nameImg) // имя картинки
+                .type(typeImg) // тип
                 .imageData(bFile)
                 .build();
 
-        return image;
+        return imageRepository.save(image);
     }
-
 }
