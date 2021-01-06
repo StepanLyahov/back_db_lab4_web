@@ -29,27 +29,21 @@ public class Info {
     Image logo;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @Column(name = "header_img")
     Image headerImg;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @Column(name = "logo_vk")
     Image logoVk;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @Column(name = "logo_instagram")
     Image logoInstagram;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @Column(name = "logo_twitter")
     Image logoTwitter;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @Column(name = "logo_facebook")
     Image logoFacebook;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @Column(name = "logo_telegram")
     Image logoTelegram;
 
     @Column(name = "url_vk")
