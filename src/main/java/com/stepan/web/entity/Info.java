@@ -22,6 +22,9 @@ public class Info {
     @Column(name = "number")
     String number;
 
+    @Column(name = "number_2")
+    String number2;
+
     @OneToOne
     Image logo;
 

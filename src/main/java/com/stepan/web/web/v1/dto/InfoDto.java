@@ -11,6 +11,8 @@ public class InfoDto {
 
     String number;
 
+    String number2;
+
     ImageDto logo;
 
     String description;
