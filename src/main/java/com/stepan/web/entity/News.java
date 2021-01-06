@@ -31,4 +31,7 @@ public class News {
 
     @Column(name = "url_youtube_video")
     String urlYouTubeVideo;
+
+    @OneToOne
+    Game game;
 }

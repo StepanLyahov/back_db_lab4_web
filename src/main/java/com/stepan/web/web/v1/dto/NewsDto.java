@@ -18,4 +18,6 @@ public class NewsDto {
     ImageDto image;
 
     String urlYouTubeVideo;
+
+    GameDto game;
 }
