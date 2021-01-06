@@ -28,4 +28,7 @@ public class News {
 
     @OneToOne(cascade = CascadeType.ALL)
     Image image;
+
+    @Column(name = "url_youtube_video")
+    String urlYouTubeVideo;
 }
