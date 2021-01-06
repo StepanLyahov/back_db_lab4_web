@@ -12,6 +12,7 @@ import java.io.FileInputStream;
 
 class InfoRepositoryTest extends BaseTest {
 
+    @Autowired
     private InfoRepository infoRepository;
 
     @Autowired
