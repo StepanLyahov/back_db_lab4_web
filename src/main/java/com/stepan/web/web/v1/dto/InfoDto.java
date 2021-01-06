@@ -15,5 +15,17 @@ public class InfoDto {
 
     ImageDto logo;
 
+    ImageDto headerImg;
+
+    ImageDto logoVk;
+
+    ImageDto logoInstagram;
+
+    ImageDto logoTwitter;
+
+    ImageDto logoFacebook;
+
+    ImageDto logoTelegram;
+
     String description;
 }
