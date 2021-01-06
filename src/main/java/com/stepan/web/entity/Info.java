@@ -52,6 +52,21 @@ public class Info {
     @Column(name = "logo_telegram")
     Image logoTelegram;
 
+    @Column(name = "url_vk")
+    String urlVk;
+
+    @Column(name = "url_instagram")
+    String urlInstagram;
+
+    @Column(name = "url_twitter")
+    String urlTwitter;
+
+    @Column(name = "url_facebook")
+    String urlFacebook;
+
+    @Column(name = "url_telegram")
+    String urlTelegram;
+
     @Column(name = "description")
     String description;
 }

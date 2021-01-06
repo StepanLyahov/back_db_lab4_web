@@ -27,5 +27,15 @@ public class InfoDto {
 
     ImageDto logoTelegram;
 
+    String urlVk;
+
+    String urlInstagram;
+
+    String urlTwitter;
+
+    String urlFacebook;
+
+    String urlTelegram;
+
     String description;
 }
