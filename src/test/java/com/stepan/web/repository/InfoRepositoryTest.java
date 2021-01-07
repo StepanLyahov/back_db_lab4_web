@@ -20,19 +20,32 @@ class InfoRepositoryTest extends BaseTest {
 
     @Test
     void addAllInfoToDB() {
-
         infoRepository.deleteAll();
 
-        // тебе нужна только одна info
         Info info = Info.builder()
-                .description("descr")
-                .logo(null)
-                .logoFacebook(addImage("","" ,""))
-                .number("number")
+                .number("8 (000) 000-00-00")
+                .number2("8 (000) 000-00-00")
+                .logo(addImage("src/main/resources/info/snail.png","logo" ,"png"))
+                .headerImg(addImage("src/main/resources/info/back.jpg","headerImg" ,"jpg"))
+                .logoVk(addImage("src/main/resources/info/vk.png", "logoVk", "png"))
+                .logoInstagram(addImage("src/main/resources/info/inst.png", "logoInstagram", "png"))
+                .logoTwitter(addImage("src/main/resources/info/twit.png", "logoTwitter", "png"))
+                .logoFacebook(addImage("src/main/resources/info/faceb1.png", "logoFacebook", "png"))
+                .logoTelegram(addImage("src/main/resources/info/teleg.png", "logoTelegram", "png"))
+                .urlVk("https://vk.com/gamelnews")
+                .urlInstagram("https://www.instagram.com/blog_games/")
+                .urlTwitter("https://twitter.com/games_news_")
+                .urlFacebook("https://ru-ru.facebook.com/FacebookGaming")
+                .urlTelegram("https://tlgrm.ru/channels/gaming")
+                .description("SNAIL — молодой сайт относительно своих конкурентов с запоминающимся названием будет информировать всех желающих о новинках в гейм-мире. Также за новостями можно наблюдать и в популярных соцсетях. Прямо сейчас вы зашли на нашу хаб-локацию: SNAIL.Ru — платформа для нашего и вашего контента! Со своей стороны мы можем предложить:\n" +
+                        "Читать здесь статьи.\n" +
+                        "Общаться в комментариях (в том числе с нами).\n" +
+                        "Создавать блоги и участвовать в еженедельном розыгрыше.\n" +
+                        "Подписываться на игры и разделы блогов, чтобы собрать из сайта собственную ленту предпочтительного контента.\n" +
+                        "Мы тут недавно сделали редизайн, поэтому сайт в активной разработке. Если у вас есть идеи, предложения или вы нашли ужасающий баг — шлите это нам!")
                 .build();
 
         infoRepository.save(info);
-
     }
 
     private Image addImage(String path, String nameImg, String typeImg) {
