@@ -1,28 +1,53 @@
-package com.stepan.web.repository;
+package com.stepan.web.web.v1.controller;
 
 import com.stepan.web.entity.Game;
 import com.stepan.web.entity.Image;
+import com.stepan.web.entity.Info;
 import com.stepan.web.entity.News;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-
+import com.stepan.web.repository.ImageRepository;
+import com.stepan.web.repository.InfoRepository;
+import com.stepan.web.repository.NewsRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.transaction.Transactional;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-class NewsRepositoryTest extends BaseTest {
+import static com.stepan.web.web.v1.ApiUtil.DB;
 
-    @Autowired
-    private NewsRepository newsRepository;
+@RestController
+@RequestMapping(DB)
+@RequiredArgsConstructor
+public class ForDBController {
 
-    @Autowired
-    private ImageRepository imageRepository;
+    private final ImageRepository imageRepository;
 
-    @Test
+    private final NewsRepository newsRepository;
+
+    private final InfoRepository infoRepository;
+
+
+    @GetMapping("/clean")
     @Transactional
+    public void clearDb() {
+        newsRepository.deleteAll();
+        infoRepository.deleteAll();
+        imageRepository.deleteAll();
+    }
+
+    @GetMapping("/fill")
+    @Transactional
+    public void fillDB() {
+        addAllInfoToDB();
+        //addAllNewsInDB();
+    }
+
     void addAllNewsInDB() {
         newsRepository.deleteAll();
         List<News> allNews = new ArrayList<>();
@@ -117,8 +142,37 @@ class NewsRepositoryTest extends BaseTest {
         newsRepository.saveAll(allNews);
     }
 
+    void addAllInfoToDB() {
+        infoRepository.deleteAll();
 
-    Image addImage(String path, String nameImg, String typeImg) {
+        Info info = Info.builder()
+                .number("8 (000) 000-00-00")
+                .number2("8 (000) 000-00-00")
+                .logo(addImage("src/main/resources/info/snail.png","logo" ,"png"))
+                .headerImg(addImage("src/main/resources/info/back.jpg","headerImg" ,"jpg"))
+                .logoVk(addImage("src/main/resources/info/vk.png", "logoVk", "png"))
+                .logoInstagram(addImage("src/main/resources/info/inst.png", "logoInstagram", "png"))
+                .logoTwitter(addImage("src/main/resources/info/twit.png", "logoTwitter", "png"))
+                .logoFacebook(addImage("src/main/resources/info/faceb1.png", "logoFacebook", "png"))
+                .logoTelegram(addImage("src/main/resources/info/teleg.png", "logoTelegram", "png"))
+                .urlVk("https://vk.com/gamelnews")
+                .urlInstagram("https://www.instagram.com/blog_games/")
+                .urlTwitter("https://twitter.com/games_news_")
+                .urlFacebook("https://ru-ru.facebook.com/FacebookGaming")
+                .urlTelegram("https://tlgrm.ru/channels/gaming")
+                .description("SNAIL — молодой сайт относительно своих конкурентов с запоминающимся названием будет информировать всех желающих о новинках в гейм-мире. Также за новостями можно наблюдать и в популярных соцсетях. Прямо сейчас вы зашли на нашу хаб-локацию: SNAIL.Ru — платформа для нашего и вашего контента! Со своей стороны мы можем предложить:\n" +
+                        "Читать здесь статьи.\n" +
+                        "Общаться в комментариях (в том числе с нами).\n" +
+                        "Создавать блоги и участвовать в еженедельном розыгрыше.\n" +
+                        "Подписываться на игры и разделы блогов, чтобы собрать из сайта собственную ленту предпочтительного контента.\n" +
+                        "Мы тут недавно сделали редизайн, поэтому сайт в активной разработке. Если у вас есть идеи, предложения или вы нашли ужасающий баг — шлите это нам!")
+                .build();
+
+        infoRepository.save(info);
+    }
+
+
+    private Image addImage(String path, String nameImg, String typeImg) {
         File file = new File(path);
         byte[] bFile = new byte[(int) file.length()];
 

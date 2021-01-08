@@ -8,4 +8,6 @@ public class ApiUtil {
 
     public static final String INFO = ROOT + "/info";
 
+    public static final String DB = ROOT + "/db";
+
 }

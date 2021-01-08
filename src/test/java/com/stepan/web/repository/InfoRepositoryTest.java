@@ -2,10 +2,10 @@ package com.stepan.web.repository;
 
 import com.stepan.web.entity.Image;
 import com.stepan.web.entity.Info;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.transaction.Transactional;
 import java.io.File;
 import java.io.FileInputStream;
 
@@ -19,6 +19,7 @@ class InfoRepositoryTest extends BaseTest {
     private ImageRepository imageRepository;
 
     @Test
+    @Transactional
     void addAllInfoToDB() {
         infoRepository.deleteAll();
 

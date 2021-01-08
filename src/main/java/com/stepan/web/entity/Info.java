@@ -62,5 +62,6 @@ public class Info {
     String urlTelegram;
 
     @Column(name = "description")
+    @Lob
     String description;
 }
